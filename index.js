@@ -144,25 +144,30 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-  constructor(attrs) {
-    this.name = attrs.name;
-    this.age = attrs.age;
-    this.location = attrs.location;
-    this.specialty = attrs.specialty;
-    this.favLanguage = attrs.favLanguage;
-    this.catchPhrase = attrs.catchPhrase
+class Instructor extends Lambdasian {
+  constructor(instructor) {
+    super(instructor);
+    this.specialty = instructor.specialty;
+    this.favLanguage = instructor.favLanguage;
+    this.catchPhrase = instructor.catchPhrase
   }
+
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
   grade(student, subject){
+    Math.random()+1;
     return `${student.name} receives a perfect score on ${subject}`
   }
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
   }
-}
+  points(student) {
+    student.grade += Math.floor(Math.random() * 100) +1;
+    student.grade -= Math.floor(Math.random() * 100) +1;
+    return `${this.name} changed ${student.name}'s grade to ${student.grade}`
+  }
+};
 
 
 /*
@@ -180,14 +185,13 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-  constructor (attrs){
-    this.name = attrs.name;
-    this.age = attrs.age;
-    this.location = attrs.location;
-    this.previousBackground = attrs.previousBackground;
-    this.className = attrs.className;
-    this.favSubjects = attrs.favSubjects;
+class Student extends Lambdasian {
+  constructor(student) {
+    super(student);
+    this.previousBackground = student.previousBackground;
+    this.className = student.className;
+    this.favSubjects = student.favSubjects;
+    this.grade = Math.floor(Math.random() * 100) +1;
   }
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
@@ -201,9 +205,15 @@ class Student {
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
   }
-
+    graduate(student){
+      if (student.grade >= 70) {
+        return `Student is ready to graduate!`
+      } else {
+        return `Keep trying`
+      }
+    }
   }
-  
+
 
 /*
   TASK 6
@@ -218,16 +228,14 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-  constructor(attrs) {
-    this.name = attrs.name;
-    this.age = attrs.age;
-    this.location = attrs.location;
-    this.specialty = attrs.specialty;
-    this.favLanguage = attrs.favLanguage;
-    this.catchPhrase = attrs.catchPhrase
-    this.gradClassName = attrs.gradClassName;
-    this.favInstructor = attrs.favInstructor;
+class ProjectManager extends Instructor {
+  constructor(pm) {
+    super(pm);
+    this.specialty = pm.specialty;
+    this.favLanguage = pm.favLanguage;
+    this.catchPhrase = pm.catchPhrase
+    this.gradClassName = pm.gradClassName;
+    this.favInstructor = pm.favInstructor;
   }
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
