@@ -153,19 +153,17 @@ class Instructor {
     this.favLanguage = attrs.favLanguage;
     this.catchPhrase = attrs.catchPhrase
   }
-  speak(){
-    return `Today we are learning about ${this.catchPhrase}`;
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
   }
 }
-let demo = new Instructor();
 
-class Demo extends Instructor {
-  constructor(subject){
-    super(subject) {
-      return `Today we are learning about ${this.catchPhrase}` 
-       
-    }
-  }
 
 /*
   TASK 5
@@ -183,7 +181,18 @@ class Demo extends Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
+  constructor (attrs){
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
+    this.previousBackground = attrs.previousBackground;
+    this.className = attrs.className;
+    this.favSubjects = attrs.favSubjects;
+  }
+  speak(){
 
+  }
+  
 }
 
 /*
