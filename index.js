@@ -193,9 +193,7 @@ class Student extends Lambdasian {
     this.favSubjects = student.favSubjects;
     this.grade = Math.floor(Math.random() * 100) +1;
   }
-  speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`
-  }
+ 
   listSubjects(){
     return `Loving ${this.favSubjects}`;
   }
@@ -237,15 +235,7 @@ class ProjectManager extends Instructor {
     this.gradClassName = pm.gradClassName;
     this.favInstructor = pm.favInstructor;
   }
-  speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`
-  }
-  demo(subject){
-    return `Today we are learning about ${subject}`;
-  }
-  grade(student, subject){
-    return `${student.name} receives a perfect score on ${subject}`
-  }
+
   standUp(channel){
     return `${this.name} announces to ${channel}, @channel standy times!`
   }
