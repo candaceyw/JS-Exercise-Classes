@@ -41,8 +41,30 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 }
+
+Person.prototype.eat= (function(someFood) {
+  if(someFood <= 10) {
+    this.stomach.push(someFood)
+    } else { 
+      if(someFood > 10) {
+        return true;
+      }
+    }
+  });
+
+  Person.prototype.poop = function() {
+    return this.stomach = [];
+}
+ Person.prototype.toString = function() {
+   return this.name + ', ' + this.age;
+ };
+
 
 /*
   TASK 2
@@ -59,9 +81,32 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 }
 
+Car.prototype.fill = function(gallons) {
+  return this.tank += gallons
+}
+
+Car.prototype.drive = function(distance) {
+
+  this.odometer += distance;
+  let fuel = this.tank * this.milesPerGallon;
+  fuel -= distance;
+  this.tank = fuel / this.milesPerGallon;
+  
+   if (this.tank <= 0){
+     this.odometer -=1;
+     this.tank = 0;
+     distance = 0;
+   return `I ran out of fuel at ${this.odometer} miles`
+  }
+  } 
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -75,7 +120,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor (attrs){
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
 
 /*
@@ -93,8 +145,27 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
-
+  constructor(attrs) {
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
+    this.specialty = attrs.specialty;
+    this.favLanguage = attrs.favLanguage;
+    this.catchPhrase = attrs.catchPhrase
+  }
+  speak(){
+    return `Today we are learning about ${this.catchPhrase}`;
+  }
 }
+let demo = new Instructor();
+
+class Demo extends Instructor {
+  constructor(subject){
+    super(subject) {
+      return `Today we are learning about ${this.catchPhrase}` 
+       
+    }
+  }
 
 /*
   TASK 5
