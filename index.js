@@ -46,24 +46,39 @@ class Person {
     this.age = age;
     this.stomach = [];
   }
+  poop () {
+    return this.stomach = [];
 }
-
-Person.prototype.eat= (function(someFood) {
+toString() {
+  return this.name + ', ' + this.age;
+};
+eat(someFood) {
   if(someFood <= 10) {
     this.stomach.push(someFood)
     } else { 
       if(someFood > 10) {
-        return true;
+        return this.poop;
       }
     }
-  });
-
-  Person.prototype.poop = function() {
-    return this.stomach = [];
+  };
 }
- Person.prototype.toString = function() {
-   return this.name + ', ' + this.age;
- };
+
+// Person.prototype.eat= (function(someFood) {
+//   if(someFood <= 10) {
+//     this.stomach.push(someFood)
+//     } else { 
+//       if(someFood > 10) {
+//         return this.stomach.poop;
+//       }
+//     }
+//   });
+
+//   Person.prototype.poop = function() {
+//     return this.stomach = [];
+// }
+//  Person.prototype.toString = function() {
+//    return this.name + ', ' + this.age;
+//  };
 
 
 /*
@@ -87,26 +102,30 @@ class Car {
     this.tank = 0;
     this.odometer = 0;
   }
-}
-
-Car.prototype.fill = function(gallons) {
-  return this.tank += gallons
-}
-
-Car.prototype.drive = function(distance) {
-
-  this.odometer += distance;
-  let fuel = this.tank * this.milesPerGallon;
-  fuel -= distance;
-  this.tank = fuel / this.milesPerGallon;
-  
-   if (this.tank <= 0){
-     this.odometer -=1;
-     this.tank = 0;
-     distance = 0;
-   return `I ran out of fuel at ${this.odometer} miles`
+  fill(gallons) {
+    return this.tank += gallons
   }
-  } 
+ drive(distance) {
+
+    this.odometer += distance;
+    let fuel = this.tank * this.milesPerGallon;
+    fuel -= distance;
+    this.tank = fuel / this.milesPerGallon;
+    
+     if (this.tank <= 0){
+       this.odometer -=1;
+       this.tank = 0;
+       distance = 0;
+     return `I ran out of fuel at ${this.odometer} miles`
+    }
+    } 
+}
+
+// Car.prototype.fill = function(gallons) {
+//   return this.tank += gallons
+// }
+
+
 /*
   TASK 3
     - Write a Lambdasian class.
