@@ -63,24 +63,6 @@ eat(someFood) {
   };
 }
 
-// Person.prototype.eat= (function(someFood) {
-//   if(someFood <= 10) {
-//     this.stomach.push(someFood)
-//     } else { 
-//       if(someFood > 10) {
-//         return this.stomach.poop;
-//       }
-//     }
-//   });
-
-//   Person.prototype.poop = function() {
-//     return this.stomach = [];
-// }
-//  Person.prototype.toString = function() {
-//    return this.name + ', ' + this.age;
-//  };
-
-
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
